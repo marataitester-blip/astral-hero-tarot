@@ -10,7 +10,7 @@ if (!API_KEY) {
   console.warn("API_KEY is not set in environment variables.");
 }
 
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
+const ai = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 
 const cardNames = tarotDeck.map(card => card.name.en).join(', ');
 
