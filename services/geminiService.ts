@@ -2,15 +2,9 @@ import { GoogleGenAI, Type } from "@google/genai";
 import tarotDeck from "../constants/deck";
 import { TarotCard } from "../types";
 
-const API_KEY = process.env.API_KEY;
 
-if (!API_KEY) {
-  // In a real app, you might want to handle this more gracefully.
-  // For this environment, we assume API_KEY is set.
-  console.warn("API_KEY is not set in environment variables.");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
+  
+const ai = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 
 const cardNames = tarotDeck.map(card => card.name.en).join(', ');
 
